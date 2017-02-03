@@ -1,0 +1,54 @@
+<!--
+`polymer-slider`
+Slider developed with jQuery Cycle Plugin
+
+@demo demo/index.html 
+-->
+
+<dom-module id="polymer-slider">
+  <script src="assets/js/vendor/jquery-1.11.1.min.js"></script>
+  <script src="assets/js/vendor/jquery.cycle2.js"></script>
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div class="slideshow">
+      <img src="http://malsup.github.com/images/beach1.jpg" width="200" height="200" />
+      <img src="http://malsup.github.com/images/beach2.jpg" width="200" height="200" />
+      <img src="http://malsup.github.com/images/beach3.jpg" width="200" height="200" />
+      <img src="http://malsup.github.com/images/beach4.jpg" width="200" height="200" />
+      <img src="http://malsup.github.com/images/beach5.jpg" width="200" height="200" />
+    </div>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'polymer-slider',
+
+      properties: {
+        speed: {
+          type: Number,
+          value: 600
+        },
+        timeout: {
+          type: Number,
+          value: 2000
+        },
+      },
+
+      ready: function() {
+
+        // Init slider
+        $('.slideshow').cycle({          
+          speed: this.speed,
+          timeout: this.timeout
+        });
+      }
+
+    });
+  </script>
+</dom-module>
